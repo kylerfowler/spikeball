@@ -62,17 +62,16 @@ public class GamePick{
        for(int c = 0; c<lastGameBench.length; c++){
            numberKeeper[c] = rand.nextInt(4);
            //it goes through and replaces numbers in c if it equals another 
-           //I dont know why this works but it does 
-           for(int o = 0; o<reverse.length; o++){
-               if(c-reverse[o]<-1){
-                   while(numberKeeper[c]==numberKeeper[c-reverse[o]]){
+           for(int o = 0; o<numberKeeper.length; o++){
+               if(numberKeeper[c] == numberKeeper[o]&& o != c){
+                   while(numberKeeper[c] == numberKeeper[o]){
                        numberKeeper[c] = rand.nextInt(4);
                    }
                }
            }
            //inserts the new players into the game
            if(numberKeeperLength[c]!=null){
-               gamePlayers[numberKeeper[c]] = lastGameBench[c];
+               gamePlayers[numberKeeper[c]] = numberKeeperLength[c];
            }
        }
    }
